@@ -223,6 +223,9 @@ a:active {
     .column.left {
         padding-top: 0;
     }
+    .column.right {
+        order: -1;
+    }
     .item img {
         width: 100%;
         height: auto;
@@ -304,7 +307,7 @@ a:active {
         gap: 12px;
     }
     .work-text {
-    margin: 0px;
+        margin: 0px;
     }
     .work-sidebar {
         grid-column: 1;
