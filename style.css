@@ -21,7 +21,7 @@ footer {
     padding: 48px 64px 24px;
 }
 .static {
-    max-height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 }
 .figtree {
@@ -31,6 +31,10 @@ footer {
    .hide-mobile {
     display: none;
     }
+    .static {
+    max-height: none;
+    overflow: visible;
+    }
 }
 @media (min-width: 768px) {
    .hide-desktop {
@@ -38,6 +42,16 @@ footer {
     }
 }
 
+
+
+
+/* HOVERS */
+.hover-cursive:hover {
+    font-style: italic;
+}
+.nav-button:hover h3{
+    color: #5f5f5f;
+}
 
 
 
@@ -61,10 +75,15 @@ p {
 	line-height: 120%;
 	letter-spacing: 0em;
 	display: block;
+    padding: 0px;
+    margin: 0px
+}
+.bold {
+	font-weight: 600;
 }
 @media (max-width: 768px) {
     p {
-    font-size: 16px;
+        font-size: 16px;
     }
 }
 h1 {
@@ -313,5 +332,160 @@ a:active {
         grid-column: 1;
         grid-row: 1;
         position: static;
+    }
+}
+
+
+
+
+/* ABOUT */
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 48px;
+    height: 100%;
+}
+.about p {
+    font-size: 16px;
+}
+.about b {
+    font-size: 16px;
+}
+p.bigt {
+    font-size: 18px;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    width: 100%;
+}
+.about-minicontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    height: 90vh;
+    width: 40%;
+    position: sticky;
+    top: 48px;
+    align-self: start;
+}
+.about-left-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 48px;
+}
+.roca {
+    width: 70%;
+}
+.dashed-line {
+    width: 100%;
+    border-top: 2px dashed #404040d2;
+}
+
+.about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+    width: 35%;
+    padding: 48px 0px;
+}
+.about-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 100%;
+    margin: 0px 0px 12px 0px;
+    white-space: nowrap;
+}
+.about-skill {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+}
+.skill-title {
+    min-width: 80px;
+}
+.about-work {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+}
+.about-work-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+}
+.about-work-description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 0px 24px;
+}
+
+@media (max-width: 768px) {
+    .about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 16px;
+    gap: 124px;
+    }
+    .about-left {
+        height: 100%;
+        width: 100%;
+        align-items: flex-end;
+        position: static;
+    }
+    .roca{
+        width: 30%;
+    }
+    .about-right {
+        gap: 24px;
+        width: 100%;
+    }
+    .about-skill {
+        flex-direction: column;
+        padding: 0px;
+        gap: 0px;
+    }
+    .about-work-name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .about-work-description {
+        padding: 0px 0px 0px 16px;
     }
 }
