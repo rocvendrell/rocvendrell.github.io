@@ -6,10 +6,39 @@
     <title>Roc Vendrell Espluga Portfolio</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const el = document.getElementById("typewriter");
+            const text = el.textContent;
+            const speed = 25;
+            const startDelay = 200;
+            const alreadyPlayed = sessionStorage.getItem("introPlayed");
+            if (alreadyPlayed) {
+                el.textContent = text;
+                document.body.classList.add("show-gallery");
+                return;
+            }
+            el.textContent = "";
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    document.body.classList.add("show-gallery");
+                    sessionStorage.setItem("introPlayed", "true");
+                }
+            }
+            setTimeout(type, startDelay);
+        });
+    </script>
 </head>
 
 <body class="home-container">
-    <header class="name-container"><h1 class="name">Roc Vendrell Espluga</h1></header>
+    <header class="name-container">
+        <h1 class="name typewriter" id="typewriter">Roc Vendrell Espluga</h1>
+    </header>
 
     <div class="nav-container">
         <nav class="nav-menu">
