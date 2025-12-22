@@ -46,13 +46,18 @@ footer {
 
 
 /* HOVERS */
-.hover-cursive:hover {
-    font-style: italic;
+@media (hover: hover) and (pointer: fine) {
+    .hover-cursive:hover {
+        font-style: italic;
+    }
+    .nav-button:hover h3{
+        color: #5f5f5f;
+    }
+    .item:hover .hover-container {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
-.nav-button:hover h3{
-    color: #5f5f5f;
-}
-
 
 
 
@@ -243,17 +248,36 @@ body.show-gallery .column.left {
     align-items: flex-start;
     padding: 0px;
     isolation: isolate;
+    position: relative;
+}
+.hover-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    text-align: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease, transform 0.5s ease;
+    z-index: -1;
+}
+.hover-container.arxiu {top: 22%;}
+.hover-container.mod {top: 10%;}
+.hover-container.kaiseki {top: 20%;}
+.hover-container.human {top: 15%;}
+.hover-container.campus {top: 10%;}
+.hover-container.changsha {top: 5%;}
+.hover-container.nexums {top: 10%;}
+.hover-container.postals {top: 30%;}
+
+.hover-title {
+    font-size: 24px;
+    white-space: nowrap;
 }
 .hover-text {
-    position: relative;
-    bottom: 10px;
-    background: rgba(255,255,255,0.85);
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-.item:hover .hover-text {
-    opacity: 1;
+    font-size: 16px;
+    white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -364,6 +388,7 @@ body.show-gallery .column.left {
     }
     .work-text {
         margin: 0px;
+        font-size:16px;
     }
     .work-sidebar {
         grid-column: 1;
@@ -376,7 +401,7 @@ body.show-gallery .column.left {
         padding: 0px 0px 12px 0px;
     }
     .work-description {
-    font-size: 16px;
+        font-size: 16px;
     }
 }
 
