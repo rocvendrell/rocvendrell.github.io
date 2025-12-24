@@ -57,11 +57,12 @@ footer {
         opacity: 1;
         transform: translate(-50%, -50%);
     }
-    .item.in-view .hover-container {
+}
+ .item.in-view .hover-container {
         opacity: 1;
         transform: translate(-50%, -50%);
-    }
 }
+
 
 
 
@@ -139,7 +140,6 @@ a:hover {
 a:active {
     text-decoration: none;
 }
-
 
 
 
