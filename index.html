@@ -26,11 +26,14 @@
             const speed = 25;
             const startDelay = 200;
             const alreadyPlayed = sessionStorage.getItem("introPlayed");
+            
             if (alreadyPlayed) {
                 el.textContent = text;
                 document.body.classList.add("show-gallery");
+                initHoverScript(); // Initialize hover immediately
                 return;
             }
+            
             el.textContent = "";
             let i = 0;
             function type() {
@@ -41,73 +44,72 @@
                 } else {
                     document.body.classList.add("show-gallery");
                     sessionStorage.setItem("introPlayed", "true");
+                    // Wait a bit after animation finishes before enabling hover
+                    setTimeout(initHoverScript, 300);
                 }
             }
             setTimeout(type, startDelay);
         });
-    </script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-        const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-        if (!isTouch) return; // only mobile
-        
-        const items = Array.from(document.querySelectorAll(".item"));
-        
-        function updateCenterItem() {
-            const viewportCenter = window.innerHeight / 2;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollBottom = scrollTop + window.innerHeight;
-            const docHeight = document.documentElement.scrollHeight;
-            
-            // Check if we're at the very top or bottom of the page
-            const atTop = scrollTop <= 10;
-            const atBottom = scrollBottom >= docHeight - 10;
-            
-            let closestItem = null;
-            let minDistance = Infinity;
-            
-            items.forEach((item) => {
-            const rect = item.getBoundingClientRect();
-            const itemCenter = rect.top + rect.height / 2;
-            const itemTop = rect.top;
-            const itemBottom = rect.bottom;
-            
-            let distance;
-            
-            // If at top of page, prioritize topmost visible item
-            if (atTop && itemTop >= 0 && itemTop < window.innerHeight) {
-                distance = itemTop * 0.1; // Very low distance to prioritize
-            }
-            // If at bottom of page, prioritize bottommost visible item
-            else if (atBottom && itemBottom > 0 && itemBottom <= window.innerHeight) {
-                distance = (window.innerHeight - itemBottom) * 0.1; // Very low distance to prioritize
-            }
-            // Normal center-based calculation
-            else {
-                distance = Math.abs(itemCenter - viewportCenter);
-            }
-            
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestItem = item;
-            }
-            });
-            
-            items.forEach(item => {
-            if (item === closestItem) {
-                item.classList.add("in-view");
-            } else {
-                item.classList.remove("in-view");
-            }
-            });
-        }
-        
-        window.addEventListener("scroll", updateCenterItem);
-        window.addEventListener("resize", updateCenterItem);
-        // initial call
-        updateCenterItem();
+        // Clear the flag when navigating away
+        window.addEventListener("beforeunload", () => {
+            sessionStorage.removeItem("introPlayed");
         });
+
+        // Hover script initialization function
+        function initHoverScript() {
+            const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+            if (!isTouch) return;
+            
+            const items = Array.from(document.querySelectorAll(".item"));
+            
+            function updateCenterItem() {
+                const viewportCenter = window.innerHeight / 2;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollBottom = scrollTop + window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+                
+                const atTop = scrollTop <= 10;
+                const atBottom = scrollBottom >= docHeight - 10;
+                
+                let closestItem = null;
+                let minDistance = Infinity;
+                
+                items.forEach((item) => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenter = rect.top + rect.height / 2;
+                    const itemTop = rect.top;
+                    const itemBottom = rect.bottom;
+                    
+                    let distance;
+                    
+                    if (atTop && itemTop >= 0 && itemTop < window.innerHeight) {
+                        distance = itemTop * 0.1;
+                    } else if (atBottom && itemBottom > 0 && itemBottom <= window.innerHeight) {
+                        distance = (window.innerHeight - itemBottom) * 0.1;
+                    } else {
+                        distance = Math.abs(itemCenter - viewportCenter);
+                    }
+                    
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestItem = item;
+                    }
+                });
+                
+                items.forEach(item => {
+                    if (item === closestItem) {
+                        item.classList.add("in-view");
+                    } else {
+                        item.classList.remove("in-view");
+                    }
+                });
+            }
+            
+            window.addEventListener("scroll", updateCenterItem);
+            window.addEventListener("resize", updateCenterItem);
+            updateCenterItem();
+        }
     </script>
 
     <script type="application/ld+json">
