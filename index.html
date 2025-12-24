@@ -46,6 +46,38 @@
             setTimeout(type, startDelay);
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+        if (!mobileQuery.matches) return;
+
+        const items = document.querySelectorAll(".item");
+        if (!items.length) return;
+
+        const observer = new IntersectionObserver(
+            entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                } else {
+                entry.target.classList.remove("in-view");
+                }
+            });
+            },
+            {
+            threshold: 0.95
+            }
+        );
+
+        items.forEach(item => observer.observe(item));
+        });
+    </script>
+
+
+
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
