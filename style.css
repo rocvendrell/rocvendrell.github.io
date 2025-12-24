@@ -285,6 +285,23 @@ body.show-gallery .column.left {
 }
 
 @media (max-width: 768px) {
+    .hover-container.arxiu {top: 20%;}
+    .hover-container.mod {top: 8%;}
+    .hover-container.kaiseki {top: 17%;}
+    .hover-container.human {top: 12%;}
+    .hover-container.campus {top: 8%;}
+    .hover-container.changsha {top: 1%;}
+    .hover-container.nexums {top: 7%;}
+    .hover-container.postals {top: 28%;}
+    .hover-title {
+        font-size: 20px;
+    }
+    .hover-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
     .gallery {
         flex-direction: column;
         padding: 32px 16px;
