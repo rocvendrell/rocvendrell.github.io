@@ -23,8 +23,8 @@
         document.addEventListener("DOMContentLoaded", () => {
             const el = document.getElementById("typewriter");
             const text = el.textContent;
-            const speed = 25;
-            const startDelay = 200;
+            const speed = 30;
+            const startDelay = 250;
             const alreadyPlayed = sessionStorage.getItem("introPlayed");
             
             if (alreadyPlayed) {
@@ -45,7 +45,7 @@
                     document.body.classList.add("show-gallery");
                     sessionStorage.setItem("introPlayed", "true");
                     // Wait a bit after animation finishes before enabling hover
-                    setTimeout(initHoverScript, 300);
+                    setTimeout(initHoverScript, 150);
                 }
             }
             setTimeout(type, startDelay);
