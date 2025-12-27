@@ -25,7 +25,12 @@
             const text = el.textContent;
             const speed = 30;
             const startDelay = 250;
-            const alreadyPlayed = sessionStorage.getItem("introPlayed");
+            const lastPlayed = sessionStorage.getItem("introPlayedTime");
+            const now = Date.now();
+            const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
+            
+            // Skip animation if played within last 10 minutes
+            const alreadyPlayed = lastPlayed && (now - parseInt(lastPlayed)) < tenMinutes;
             
             if (alreadyPlayed) {
                 el.textContent = text;
@@ -43,17 +48,12 @@
                     setTimeout(type, speed);
                 } else {
                     document.body.classList.add("show-gallery");
-                    sessionStorage.setItem("introPlayed", "true");
+                    sessionStorage.setItem("introPlayedTime", now.toString());
                     // Wait a bit after animation finishes before enabling hover
                     setTimeout(initHoverScript, 150);
                 }
             }
             setTimeout(type, startDelay);
-        });
-
-        // Clear the flag when navigating away
-        window.addEventListener("beforeunload", () => {
-            sessionStorage.removeItem("introPlayed");
         });
 
         // Hover script initialization function
@@ -110,7 +110,7 @@
             window.addEventListener("resize", updateCenterItem);
             updateCenterItem();
         }
-    </script>
+        </script>
 
     <script type="application/ld+json">
     {
