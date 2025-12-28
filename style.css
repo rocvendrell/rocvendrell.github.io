@@ -18,7 +18,11 @@ footer {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    padding: 48px 64px 24px;
+    padding: 48px 64px 32px 0px;
+}
+footer h3 {
+    line-height: 120%;
+    text-align: right;
 }
 .static {
     min-height: 100vh;
@@ -28,12 +32,20 @@ footer {
     font-family: Figtree;
 }
 @media (max-width: 768px) {
-   .hide-mobile {
-    display: none;
+    .hide-mobile {
+        display: none;
     }
     .static {
-    max-height: none;
-    overflow: visible;
+        max-height: none;
+        overflow: visible;
+    }
+    footer {
+        padding: 24px 16px 80px 16px;
+        justify-content: center;
+    }
+    footer h3 {
+        line-height: 120%;
+        text-align: center;
     }
 }
 @media (min-width: 768px) {
