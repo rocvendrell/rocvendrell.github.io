@@ -620,3 +620,36 @@ p.bigt {
         padding: 0px 0px 0px 16px;
     }
 }
+
+
+
+
+/* 404 */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    min-height: 100vh;
+}
+.error-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 48px 0px;
+    gap: 8px;
+}
+.error-roca {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 15%;
+}
+@media (max-width: 768px) {
+    .error-roca {
+        width: 40%;
+    }
+}

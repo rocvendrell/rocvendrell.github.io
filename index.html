@@ -27,15 +27,14 @@
             const startDelay = 250;
             const lastPlayed = sessionStorage.getItem("introPlayedTime");
             const now = Date.now();
-            const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
+            const tenMinutes = 30 * 60 * 1000;
             
-            // Skip animation if played within last 10 minutes
             const alreadyPlayed = lastPlayed && (now - parseInt(lastPlayed)) < tenMinutes;
             
             if (alreadyPlayed) {
                 el.textContent = text;
                 document.body.classList.add("show-gallery");
-                initHoverScript(); // Initialize hover immediately
+                initHoverScript();
                 return;
             }
             
@@ -49,14 +48,12 @@
                 } else {
                     document.body.classList.add("show-gallery");
                     sessionStorage.setItem("introPlayedTime", now.toString());
-                    // Wait a bit after animation finishes before enabling hover
                     setTimeout(initHoverScript, 150);
                 }
             }
             setTimeout(type, startDelay);
         });
 
-        // Hover script initialization function
         function initHoverScript() {
             const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
             if (!isTouch) return;
@@ -110,7 +107,7 @@
             window.addEventListener("resize", updateCenterItem);
             updateCenterItem();
         }
-        </script>
+    </script>
 
     <script type="application/ld+json">
     {
@@ -209,6 +206,16 @@
                     </div>
                 </a>
             </div>
+            
+            <div class="item">
+                <a href="/nexums/">
+                    <img src="/assets/nexumsHome.webp" alt="">
+                    <div class="hover-container nexums">
+                        <h2 class="hover-title">NEXUMS</h2>
+                        <p class="hover-text">Installation</p>
+                    </div>
+                </a>
+            </div>
 
             <div class="item">
                 <a href="/campus/">
@@ -216,16 +223,6 @@
                     <div class="hover-container campus">
                         <h2 class="hover-title">CAMPUS UB</h2>
                         <p class="hover-text">UX/UI</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item">
-                <a href="/nexums/">
-                    <img src="/assets/nexumsHome.webp" alt="">
-                    <div class="hover-container nexums">
-                        <h2 class="hover-title">NEXUMS</h2>
-                        <p class="hover-text">Installation</p>
                     </div>
                 </a>
             </div>
