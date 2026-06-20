@@ -62,9 +62,9 @@ footer h3 {
     .hover-cursive:hover {
         font-style: italic;
     }
-    .nav-button:hover h3{
-        color: #5f5f5f;
-    }
+    .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+}
     .item:hover .hover-container {
         opacity: 1;
         transform: translate(-50%, -50%);
@@ -86,6 +86,10 @@ footer h3 {
 @font-face {
     font-family: "Figtree";
     src: url("./assets/Figtree-VariableFont_wght.ttf") format('truetype');
+}
+@font-face {
+    font-family: "Nunito Sans";
+    src: url("./assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format('truetype');
 }
 
 p {
@@ -175,12 +179,22 @@ a:active {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 16px;
-    gap: 16px;
+    padding: 0px 10px 0px 3px;
+    gap: 4px;
     width: 220px;
     height: 40px;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.6) 75%,
+      rgba(255, 255, 255, 0.75) 100%
+    );
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6);
     border-radius: 99px;
 }
 .nav-button {
@@ -188,7 +202,10 @@ a:active {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 6px;
+    height: 34px;
+    padding: 0px 14px;
+    border-radius: 99px;
+    transition: background-color 0.15s ease;
 }
 .nav-center {
     pointer-events: none;
