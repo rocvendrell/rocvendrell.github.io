@@ -91,12 +91,16 @@ footer h3 {
     font-family: "Nunito Sans";
     src: url("./assets/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format('truetype');
 }
+@font-face {
+    font-family: "Geist";
+    src: url("./assets/Geist-VariableFont_wght.ttf") format('truetype');
+}
 
 p {
 	font-size: 20px;
 	font-weight: 400;
 	color: #404040;
-	font-family: Figtree;
+	font-family: Geist;
 	font-style: normal;
 	line-height: 120%;
 	letter-spacing: 0em;
@@ -105,7 +109,7 @@ p {
     margin: 0px
 }
 .bold {
-	font-weight: 600;
+	font-weight: 575;
 }
 @media (max-width: 768px) {
     p {
@@ -113,7 +117,7 @@ p {
     }
 }
 h1 {
-	font-family: Source Code Pro;
+	font-family: Geist;
 	font-style: normal;
 	font-weight: 500;
 	margin: 0;
@@ -123,7 +127,7 @@ h1 {
 	letter-spacing: 0;
 }
 h2 {
-	font-family: Source Code Pro;
+	font-family: Geist;
 	font-style: normal;
 	font-weight: 500;
 	margin: 0;
@@ -137,7 +141,7 @@ h3 {
 	font-size: 16px;
 	font-weight: 500;
 	color: #404040;
-	font-family: Source Code Pro;
+	font-family: Geist;
 	font-style: normal;
 	line-height: 40px;
 	letter-spacing: 0em;
@@ -179,15 +183,15 @@ a:active {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px 0px 3px;
+    padding: 0px 4px 0px 4px;
     gap: 4px;
     width: 220px;
     height: 40px;
     background: radial-gradient(
       ellipse at center,
-      rgba(255, 255, 255, 0.45) 0%,
-      rgba(255, 255, 255, 0.6) 75%,
-      rgba(255, 255, 255, 0.75) 100%
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.7) 75%,
+      rgba(255, 255, 255, 0.85) 100%
     );
     -webkit-backdrop-filter: blur(14px) saturate(160%);
     backdrop-filter: blur(14px) saturate(160%);
@@ -211,8 +215,10 @@ a:active {
     pointer-events: none;
 }
 .nav-center h3 {
-    color: #727272;
-    font-weight: 400;
+    /*color: #727272;*/
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin: 0px 0px 0px 0px;
 }
 
 
@@ -227,10 +233,10 @@ a:active {
     padding: 20px 0px 0px;	
 }
 .name{
-    font-family: 'Source Code Pro';
     color: #404040;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
+    letter-spacing: 2px;
     font-size: clamp(24px, 6vw, 48px);
     line-height: 100%;
 }
@@ -440,7 +446,6 @@ body.show-gallery .column.left {
 .work-gallery.extra-gap .work-text.extra-padding {
     margin: 48px 0px -24px 0px;
 }
-
 .work-description {
     font-size: 16px;
 }
@@ -489,9 +494,6 @@ body.show-gallery .column.left {
         position: static;
         margin: 0px;
         padding: 0px 0px 12px 0px;
-    }
-    .work-description {
-        font-size: 16px;
     }
 }
 
@@ -557,7 +559,7 @@ p.bigt {
 }
 .dashed-line {
     width: 100%;
-    border-top: 1px solid #404040d2;
+    border-top: 1px solid #40404050;
 }
 
 .about-right {
@@ -567,7 +569,7 @@ p.bigt {
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 35%;
+    width: 40%;
     padding: 48px 0px;
 }
 .about-title {
@@ -581,15 +583,26 @@ p.bigt {
     margin: 0px 0px 12px 0px;
     white-space: nowrap;
 }
-.about-skill {
+.about-div {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
 }
-.skill-title {
+.about-div-title {
     min-width: 80px;
+    font-weight: 300;
+}
+p.about-div-title {
+    font-size: 14px;
+}
+.about-work-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
 }
 .about-work {
     display: flex;
@@ -600,9 +613,8 @@ p.bigt {
 }
 .about-work-name {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-starts;
     padding: 0px;
     width: 100%;
 }
@@ -611,7 +623,26 @@ p.bigt {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px 0px 0px 24px;
+    padding: 0px 0px 0px 0cqw;
+}
+p.about-work-date {
+    font-size: 14px;
+    font-weight: 300;
+    color: #404040b0;
+}
+.linked-text{
+	font-weight: 400;
+	color: #404040;
+	font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: #40404090;
+}
+span .linked-text{
+	font-weight: 400;
+	color: #404040;
+	font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: #40404090;
 }
 
 @media (max-width: 768px) {
