@@ -677,7 +677,7 @@ span .linked-text{
         align-items: flex-start;
     }
     .about-work-description {
-        padding: 0px 0px 0px 16px;
+        padding: 0px 0px 0px 0px;
     }
 }
 
